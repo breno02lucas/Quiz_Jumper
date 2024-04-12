@@ -1,0 +1,81 @@
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+}
+
+body{
+    overflow: hidden;
+}
+
+main{
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+span{
+    color: #e0ff00;
+}
+
+.loader{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    border-radius: 50%;
+    background-color: #e0ff00;
+    color: #2c333b;
+    font-size: 100px;
+    line-height: 200px;
+}
+
+
+.loader::before{
+    content: "GO!";   
+
+    font-size: 75px;
+
+    animation-name: contagem;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes contagem {
+    0%{
+        content: "3";
+        font-size: 0;
+    }
+    25%{
+        content: "3";        
+        font-size: 100px;
+    }
+    26%{
+        content: "2";
+        font-size: 0;
+    }
+    50%{
+        content: "2";
+        font-size: 100px;
+    }
+    51%{
+        content: "1";
+        font-size: 0;
+    }
+    75%{
+        content: "1";
+        font-size: 100px;
+    }
+    76%{
+        content: "GO!";
+        font-size: 0;
+    }
+    100%{
+        content: "GO!";
+        font-size: 75px;
+    }
+}

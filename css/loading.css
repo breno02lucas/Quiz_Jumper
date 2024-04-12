@@ -1,0 +1,55 @@
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+}
+
+body{
+    overflow: hidden;
+}
+
+main{
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+.loader{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-size: 200px;
+    color: #e0ff00;
+
+    animation-name: loading;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+span{
+    color: #e0ff00;
+}
+
+@keyframes loading {
+
+    0%{
+        left: -50%;
+    }
+
+    33%{
+        left: calc(100%/3);
+    }
+
+    66%{
+        left: calc(100%/3*2);
+    }
+
+    100%{
+        left: 110%;
+    }
+    
+}

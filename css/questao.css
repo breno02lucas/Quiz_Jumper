@@ -1,0 +1,148 @@
+.container{
+    float: left;
+    width: 100%;
+}
+
+#placar{
+    width: 85%;
+    height: 80px;
+    margin: 50px auto;
+    border-radius: 100px;
+    background-color: #e0ff00;
+}
+
+#placar h1{
+    width: 49%;
+    float: left;
+    text-align: center;
+    line-height: 80px;
+    color: #2c333b;
+}
+
+#placar #placar-nome{
+    border-right: #2c333b 2px dashed;
+}
+
+main h1{
+    margin: 50px 0;
+    text-align: center;
+    color: #e0ff00;
+}
+
+main #questao{
+    margin: 0 10% 50px;
+    text-align: justify;
+    font-size: 25px;
+    color: white;
+}
+
+main .botoes-respostas{
+    text-align: center;
+}
+
+main .botoes-respostas button{
+    width: 60%;
+    height: auto;
+    margin-bottom: 15px;
+    min-height: 50px;
+    border: none;
+    border-radius: 100px;
+    background-color: #e0ff00;
+
+    box-shadow: 3px 3px 0px white;
+    
+    transition-duration: .2s;
+}
+
+main .botoes-respostas button:active{
+    box-shadow: 0px 0px 0px white;
+    transform: translateY(3px);
+
+    background-color: #91a11b;
+}
+
+main .respondido button{
+    animation-name: respondido;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+}
+
+footer{
+    margin-top: 50px;
+}
+
+#tempo{
+    position: absolute;
+    width: 80%;
+    height: 20px;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url("../img/green.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    border-radius: 20px;
+
+    animation-name: cronometro;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+}
+
+@keyframes cronometro{
+    from{
+        background-size: 100% 100%;
+
+    }
+
+    to{
+        background-size: 0% 100%;
+
+    }
+}
+
+@keyframes respondido{
+    from{
+        background-color: #e0ff00;
+    }
+    50%{
+        background-color: grey;
+    }
+    to{
+        background-color: grey;
+    }
+}
+
+@media only screen and (max-width: 392px)  {
+    #placar{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        height: 50px;
+    }
+
+    #placar h1{
+        font-size: 25px;
+        line-height: 50px;
+    }
+
+    main h1{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 1100px)
+{
+    main .botoes-colunas{
+        float: left;
+        width: 49%;
+    }
+
+    main .botoes-colunas:first-child{
+        
+    }
+
+    main .botoes-colunas:last-child{
+        
+    }
+}

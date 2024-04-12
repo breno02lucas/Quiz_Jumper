@@ -1,0 +1,72 @@
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+}
+
+body{
+    overflow: hidden;
+}
+
+main{
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+.loader{    
+    width: 200px;
+    height: 200px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #e0ff00;
+    font-size: 200px;
+    color: white;
+}
+
+.loader::before{
+    content: "1";    
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    animation-name: loading;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+
+span{
+    color: #e0ff00;
+}
+
+@keyframes loading {
+
+    0%{
+        left: 100%;
+        transform: translateX(-100%);
+    }
+
+    33%{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    66%{
+        left: 100%;
+        transform: translateX(-100%);
+        content: "2";
+    }
+
+    100%{
+        left: 50%;
+        transform: translateX(-50%);
+        content: "3";
+    }
+
+}
