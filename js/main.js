@@ -9,8 +9,8 @@ window.onload = (event) => {
 
     if (inputCode == verificacao)
     {
-        alert("Verdadeiro")
+        //alert("Verdadeiro")
     } else{
-        alert("Falso")
+        //alert("Falso")
     }
 }
