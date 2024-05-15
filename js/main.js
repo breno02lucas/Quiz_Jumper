@@ -9,6 +9,7 @@ window.onload = (event) => {
     // Switch de páginas
     switch(page)
     {
+<<<<<<< HEAD
         case "loading.html":
             ConexaoInicial()
             break
@@ -171,5 +172,10 @@ function Questao()
             console.log('Conteúdo do arquivo:');
             console.log(data);
         });
+=======
+        //alert("Verdadeiro")
+    } else{
+        //alert("Falso")
+>>>>>>> 7aaa6117447a9ee3501fa94782b23724d9b07d52
     }
 }
