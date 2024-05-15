@@ -1,72 +1,27 @@
-footer{
-    width: 100%;
-    position: absolute;
-    bottom: 20px;
-    text-align: center;
-}
+-> Criar um loop para gerar os codigos da aula com while
+-> Criar uma função com parametro e retorno
+-> Criar uma função que leia o codigo e retorno se esta correto ou não
+        function VerificarCodigo(codDigitado)
+        {
+            let codigos = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12', 'A13', 'A14', 'A15', 'A16', 'A17', 'A18', 'A19', 'A20', 'A21', 'A22', 'A23', 'A24', 'A25', 'A26', 'A27', 'A28', 'A29', 'A30', 'A31', 'A32', 'A33', 'A34', 'A35', 'A36', 'A37', 'A38', 'A39', 'A40', 'A41', 'A42', 'A43', 'A44', 'A45', 'A46', 'A47', 'A48', 'A49', 'A50', 'A51', 'A52', 'A53', 'A54' ]
+            let result = false
 
-body{
-    overflow: hidden;
-}
+            codigos.forEach(element => {
+                if(element == codDigitado)
+                {  
+                    result = true
+                    return false
+                }                    
+            });
 
-main{
-    float: left;
-    width: 100%;
-    text-align: center;
-}
+            return result
+        }
+-> Ler a função
+        console.log(VerificarCodigo(I_Code.value))
+        if(VerificarCodigo(I_Code.value) == true)
+        {
+            location.href = "nickname.html"
+        }   
+-> Cookies no JavaScipt
+-> sessionStorage {set, get} 
 
-.loader{    
-    width: 200px;
-    height: 200px;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    background-color: #e0ff00;
-    font-size: 200px;
-    color: white;
-}
-
-.loader::before{
-    content: "1";    
-
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-
-    animation-name: loading;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
-}
-
-span{
-    color: #e0ff00;
-}
-
-@keyframes loading {
-
-    0%{
-        left: 100%;
-        transform: translateX(-100%);
-    }
-
-    33%{
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    66%{
-        left: 100%;
-        transform: translateX(-100%);
-        content: "2";
-    }
-
-    100%{
-        left: 50%;
-        transform: translateX(-50%);
-        content: "3";
-    }
-
-}
