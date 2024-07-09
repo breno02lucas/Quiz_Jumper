@@ -1,22 +1,21 @@
 window.onload = (event) => {
 
     let path = window.location.pathname
+    let page = path.split("/").pop()
 
-    // Pop remove o último el. e o guarda
-    let page = path.split("/").pop();
-    console.log(page)
-    
-    // Switch de páginas
-    switch(page)
-    {
+    switch (page) {
+        case "index.html":
+            break
+
+        case "nickname.html":
+            break
+
         case "loading.html":
             ConexaoInicial()
             break
+
         case "timer.html":
             Timer()
-            break
-        case "questao.html":
-            Questao()
             break
     }
 }
@@ -39,7 +38,7 @@ function VerificarCodigoAula()
             // é igual ao codigo
             // Se sim, vá para nickname.html
 
-            if(VerificarCodigoDigitado(codigo))
+            if(VerificarCodigoDigitado(codigo.toUpperCase()))
             {                             
                 location.href = "nickname.html"
             }            
@@ -77,6 +76,13 @@ function VerificarCodigoCookie(codigoAula)
 
 function Nickname()
 {
+    let classcode = sessionStorage.getItem("classcode")
+
+    if(classcode == '' || classcode == null)
+    {
+        location.href = "index.html"
+    }
+
     // Criar uma variavel para pegar o valor do input
     let nickname = document.getElementById("nome")
 
@@ -112,65 +118,32 @@ function ConexaoInicial()
 
     // Verificar se ambos são válidos
 
-    if (classcode != '' && classcode != null && nickname != '' && nickname != null) 
+    if (classcode == '' || classcode == null || nickname == '' || nickname == null) 
     {
+        location.href = "index.html"
+    }
+    else{
         setInterval(() => {
             location.href = "timer.html"
-        }, 1000);
+        }, 3000);
     }
 }
 
 // TIMER FUNÇÕES
 
-function Timer(){
+function Timer()
+{
+    // Avisa a turma para adicionar as variaveis aqui
+    let classcode = sessionStorage.getItem("classcode")
+    let nickname = sessionStorage.getItem("nickname")
+
+    // Explicar erro lógico
+    if (classcode == '' || classcode == null || nickname == '' || nickname == null) 
+    {
+        location.href = "index.html"
+    }
+
     setInterval(() => {
         location.href = "questao.html"
     }, 5000);
-}
-
-// QUESTAO FUNÇÕES
-
-function Questao()
-{
-    // DOM HTML
-    const nomePlacar = document.getElementById("placar-nome")
-    const scoresPlacar = document.getElementById("placar-pontos")
-    const numQuestao = document.getElementById("num-questao")
-    const enunciadoQuestao = document.getElementById("questao")
-    const altA = document.getElementById("resposta1")
-    const altB = document.getElementById("resposta2")
-    const altC = document.getElementById("resposta3")
-    const altD = document.getElementById("resposta4")
-
-    // Variaveis das Questoes
-    nome = sessionStorage.getItem("nickname")
-    scores = 0
-    
-    // Atribuindo
-    nomePlacar.innerHTML = nome
-    scoresPlacar.innerHTML = scores + "pts"
-
-    // Supondo que você tenha um arquivo chamado "arquivo.txt" no mesmo diretório que este código
-
-    // Importa o módulo 'fs' (File System) para manipulação de arquivos
-    const fs = require('fs');
-
-    // Nome do arquivo que queremos ler
-    const nomeArquivo = 'C1A1.txt';
-
-    // Função para ler o arquivo
-    function lerArquivo(nomeArquivo) {
-        // Utiliza o método readFile do módulo fs para ler o arquivo
-        fs.readFile(nomeArquivo, 'utf8', (err, data) => {
-            if (err) {
-                // Se houver um erro, imprime-o
-                console.error('Erro ao ler o arquivo:', err);
-                return;
-            }
-            // Se não houver erros, imprime o conteúdo do arquivo
-            console.log('Conteúdo do arquivo:');
-            console.log(data);
-        });
-        //alert("Verdadeiro")
-    }
 }

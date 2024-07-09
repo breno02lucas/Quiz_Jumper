@@ -1,0 +1,21 @@
+--> Corrigir erro de voltar a tela classcode apagando a Conexão Inicial da Função
+--> Corrigir erro lógico na função Conexão Inicial e no Timer
+    if ((classcode == '' || classcode == null) || (nickname == '' || nickname == null)) 
+    {
+        location.href = "index.html"
+    }
+    else
+    {
+        setInterval(() => {
+            location.href = "timer.html"
+        }, 3000);
+    }
+--> Atribuir valores
+    // Variaveis com valores iniciais
+    const nome = nickname
+    let pontuacao = 0
+    let numQuestao = 0
+    // Conectando valores variaveis aos inputs
+    N_pontos.innerHTML = pontuacao + "pts"  
+    N_numQuestao.innerHTML = numQuestao
+--> Criar funções para tratamento de dados em cada aula

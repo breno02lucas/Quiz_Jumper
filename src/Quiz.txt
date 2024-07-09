@@ -1,0 +1,24 @@
+-> Criar uma variavel para pegar o c1a1.getQuestoes
+	const questao = c1a1.getQuestoes
+-> Criar função para ordenar questões de acordo com a questão e colocar no índice
+	function AnalisarOrdenarQuestoes(questoes, contadorQuestao, T_questao, B_res1, B_res2, B_res3, B_res4)
+	{    
+    		T_questao.innerText = questoes[contadorQuestao - 1][0]
+    		B_res1.innerText = questoes[contadorQuestao - 1][1]
+   		B_res2.innerText = questoes[contadorQuestao - 1][2]
+    		B_res3.innerText = questoes[contadorQuestao - 1][3]
+    		B_res4.innerText = questoes[contadorQuestao - 1][4]
+	}
+
+-> Criar um arq quiz.js e jogar todo o código feito até o momento
+-> Criar os listeners das alternativas
+-> Criar uma função que verifica a alternativa clicada
+function VerificarAlternativaClicada(questoes, contador, alternativa)
+{
+    console.log(questoes[contador - 1][5].replace(" ", ""))
+
+    if(alternativa == questoes[contador - 1][5].replace(" ", ""))
+        return 100
+
+    return 0        
+}

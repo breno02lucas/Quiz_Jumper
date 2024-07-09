@@ -31,7 +31,7 @@ main h1{
 
 main #questao{
     margin: 0 10% 50px;
-    text-align: justify;
+    text-align: center;
     font-size: 25px;
     color: white;
 }
@@ -89,6 +89,88 @@ footer{
     animation-timing-function: linear;
 }
 
+#resultado{
+    display: none;
+    position: fixed;
+    width: 80vw;
+    padding: 20px 0;
+    border-radius: 30px;
+    background-color: #e0ff00;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#resultado #pontuacao-final{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 50px;
+    color: #2c333b;
+}
+
+#resultado p{
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #2c333b;
+}
+
+#resultado #pontuacao-final #span-pts{
+    font-size: 30px;
+}
+
+#resultado nav .btn-resultado{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#resultado nav .btn-resultado button{
+    cursor: pointer;
+    background: none;
+    border: #2c333b solid 2px;
+    border-radius: 20px;
+}
+
+#resultado nav .btn-resultado button span{
+    padding: 10px;
+    font-size: 40px;
+    color: #2c333b;
+}
+
+#resultado nav .btn-resultado a{
+    cursor: pointer;
+}
+
+#resultado nav .btn-resultado a span{
+    padding: 10px;
+    font-size: 40px;
+    color: #2c333b;
+
+    background: none;
+    border: #2c333b solid 2px;
+    border-radius: 20px;
+}
+
+@media only screen and (min-width: 768px)
+{
+    #resultado{
+        max-width: 55vh;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @keyframes cronometro{
     from{
         background-size: 100% 100%;
@@ -136,13 +218,5 @@ footer{
     main .botoes-colunas{
         float: left;
         width: 49%;
-    }
-
-    main .botoes-colunas:first-child{
-        
-    }
-
-    main .botoes-colunas:last-child{
-        
     }
 }
