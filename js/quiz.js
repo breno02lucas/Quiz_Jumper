@@ -105,9 +105,61 @@ window.onload = (event) => {
 function VerificarResposta(altEscolhida, altCorreta)
 {
     if (altEscolhida == altCorreta.replace(" ", ""))
+    {     
+        AninRespostaCorreta()
         return 100
-
+    }    
+    
+    AninRespostaErrada()
     return 0
+}
+
+function AninRespostaErrada()
+{
+    var id = null;
+    var elem = document.body
+    var tempo = 0
+    clearInterval(id)
+    id = setInterval(RespostaErrada, 2)
+
+    var audio = new Audio('./src/wrong.mp3');
+    audio.play();
+
+    function RespostaErrada()
+    {
+        if (tempo == 350){
+            elem.classList.remove("body-anim-errado")
+            clearInterval(id)
+        }
+        else{
+            tempo++;
+            elem.classList.add("body-anim-errado")
+        }
+    }
+}
+
+function AninRespostaCorreta()
+{
+    var id = null;
+    var elem = document.body
+    var tempo = 0
+    clearInterval(id)
+    id = setInterval(RespostaCorreta, 2)
+
+    var audio = new Audio('./src/correct.mp3');
+    audio.play();
+
+    function RespostaCorreta()
+    {
+        if (tempo == 350){
+            elem.classList.remove("body-anim-correto")
+            clearInterval(id)
+        }
+        else{
+            tempo++;
+            elem.classList.add("body-anim-correto")
+        }
+    }
 }
 
 function AlternarQuestao(questoes, contador, enunciado, alt1, alt2, alt3, alt4)

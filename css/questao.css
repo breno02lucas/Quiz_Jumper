@@ -151,35 +151,24 @@ footer{
     border-radius: 20px;
 }
 
-@media only screen and (min-width: 768px)
-{
-    #resultado{
-        max-width: 55vh;
-    }
+.body-anim-errado{
+    animation-name: resposta-errada;
+    animation-duration: 2s;
+    animation-direction: alternate;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+.body-anim-correto{
+    animation-name: resposta-correta;
+    animation-duration: 2s;
+    animation-direction: alternate;
+}
 
 @keyframes cronometro{
     from{
         background-size: 100% 100%;
-
     }
-
     to{
         background-size: 0% 100%;
-
     }
 }
 
@@ -195,7 +184,52 @@ footer{
     }
 }
 
-@media only screen and (max-width: 392px)  {
+@keyframes resposta-errada {
+    0% {
+        background: #B84756;
+    }
+    33% {
+        background: #2c333b;
+    }
+    66% {
+        background: #B84756;
+    }
+    99% {
+        background: #2c333b;
+    }
+}
+
+@keyframes resposta-correta {
+    0% {
+        background: #56a993;
+    }
+    33% {
+        background: #2c333b;
+    }
+    66% {
+        background: #56a993;
+    }
+    99% {
+        background: #2c333b;
+    }
+}
+
+
+
+
+
+/* RESPONSIVIDADE */
+
+@media only screen and (min-width: 768px)
+{
+    #resultado{
+        max-width: 55vh;
+    }
+}
+
+
+@media only screen and (max-width: 392px)  
+{
     #placar{
         margin-top: 20px;
         margin-bottom: 10px;
