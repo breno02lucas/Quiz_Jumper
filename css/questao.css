@@ -1,3 +1,7 @@
+*{
+    overflow: initial !important;
+}
+
 .container{
     float: left;
     width: 100%;
@@ -64,28 +68,6 @@ main .botoes-respostas button:active{
 main .respondido button{
     animation-name: respondido;
     animation-duration: 1.5s;
-    animation-timing-function: linear;
-}
-
-footer{
-    margin-top: 50px;
-}
-
-#tempo{
-    position: absolute;
-    width: 80%;
-    height: 20px;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: url("../img/green.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center;
-    border-radius: 20px;
-
-    animation-name: cronometro;
-    animation-duration: 30s;
     animation-timing-function: linear;
 }
 
@@ -161,6 +143,30 @@ footer{
     animation-name: resposta-correta;
     animation-duration: 2s;
     animation-direction: alternate;
+}
+
+footer{
+    width: 100%;
+    margin-top: 5vh;
+
+    text-align: center;
+}
+
+footer #botoes-func li{
+    display: inline-block;
+}
+
+footer #botoes-func button{
+    background: #e0ff00;
+    border: none;
+    border-radius: 50%;
+}
+
+footer #botoes-func button span{
+    padding: 2vh;
+
+    font-size: 2vh;
+    color: #2c333b;
 }
 
 @keyframes cronometro{
@@ -249,8 +255,17 @@ footer{
 
 @media only screen and (min-width: 1100px)
 {
+    main{
+        margin-top: 5vh;
+    }
+
     main .botoes-colunas{
         float: left;
         width: 49%;
+    }
+
+    footer{
+        position: absolute;
+        bottom: 5vh;
     }
 }

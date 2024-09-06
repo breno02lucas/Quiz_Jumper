@@ -94,16 +94,18 @@ function Nickname()
             // pegar o valor de nickname
             let nick = nickname.value
 
+            sessionStorage.setItem("nickname", nick)
+            location.href = "loading.html"
+
             // cheque se o valor é valido, se for salve o valor
-            let regex = /^[a-zA-Z]+$/
+            /*let regex = /^[a-zA-Z]+$/
             if(regex.test(nick)) 
             {
-                sessionStorage.setItem("nickname", nick)
-                location.href = "loading.html"
+                
             }
             else{
                 alert("Digitar apenas letras!")
-            }
+            }*/
         }
 
     })

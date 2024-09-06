@@ -19,15 +19,21 @@ window.onload = (event) => {
     const B_res3 = document.getElementById("resposta3")    
     const B_res4 = document.getElementById("resposta4")
     const T_PontosFinais = document.getElementById("pontuacao-final")
+    const B_Audio = document.getElementById("b-playaudio")
 
     // Variaveis com valores iniciais
     let pontuacao = 0    
     let contadorQuestao = 1
+    let isaudioback = false
 
     // DOM HTML
     T_nome.innerText = nickname
     N_pontos.innerText = pontuacao    
     N_numQuestao.innerText = contadorQuestao
+
+    // Audios    
+    audio_background = new Audio('./src/background.mp3')
+
 
     const questoes = c1a1.getQuestoes
 
@@ -99,6 +105,25 @@ window.onload = (event) => {
         if (contadorQuestao <= 5)
             AlternarQuestao(questoes, contadorQuestao, T_questao, B_res1, B_res2, B_res3, B_res4)
 
+    })
+
+    // Som de fundo
+    B_Audio.addEventListener("mousedown", function(event)
+    {
+        isaudioback = !isaudioback
+
+        if (isaudioback == true)
+        {        
+            audio_background.play()
+
+            B_Audio.style.backgroundColor = "#95a80d"
+        }
+        else{
+            audio_background.pause()
+
+            document.getElementById("b-playaudio").style.backgroundColor = "#e0ff00"
+        }
+        
     })
 }
 
@@ -210,3 +235,4 @@ function Venceu(contadorQuestao)
         T_classcode.innerHTML = sessionStorage.getItem("classcode").toUpperCase()
     }
 }   
+
