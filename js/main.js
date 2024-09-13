@@ -48,7 +48,7 @@ function VerificarCodigoAula()
 
 function VerificarCodigoDigitado(codDigitado)
 {
-    const listaCodigos = ['C1A1', 'C1A2', 'C1A3']
+    const listaCodigos = ['C1A1', 'C1A2', 'C1A3', 'C1A4', 'C1A5', 'C1A6', 'C1A7']
     let resultado = false
 
     listaCodigos.forEach(element => {

@@ -35,8 +35,9 @@ window.onload = (event) => {
     // Audios    
     audio_background = new Audio('./src/background.mp3')
 
-
-    const questoes = c1a1.getQuestoes
+    // Questão
+    const c1 = [c1a1, c1a2, c1a3, c1a4, c1a5, c1a6, c1a7]
+    const questoes = EscolherQuestao(classcode, c1).getQuestoes
 
     // Atribuindo aos elementos html, valores da questão 1
     AlternarQuestao(questoes, contadorQuestao, T_questao, B_res1, B_res2, B_res3, B_res4)
@@ -143,6 +144,12 @@ window.onload = (event) => {
     Timer()
 }
 
+function EscolherQuestao(codigo, curso)
+{
+    classnumber = parseInt(codigo[3], 10) - 1
+    return curso[classnumber]
+}
+
 function VerificarResposta(altEscolhida, altCorreta)
 {
     if (altEscolhida == altCorreta.replace(" ", ""))
@@ -239,16 +246,18 @@ function Venceu(contadorQuestao, tempo)
     if(contadorQuestao == 5 || tempo <= 0)
     {
         const container = document.getElementsByClassName("container")
-        const T_classcode = document.getElementsByClassName("code")
+        const T_classcode = document.getElementById("code")
+        const T_nickname = document.getElementById("name")
 
         container[0].style.display = "none"
         container[1].style.display = "none"
         container[2].style.display = "none"
-
+        
         const resultado = document.getElementById("resultado")
         resultado.style.display = "block"
 
         T_classcode.innerHTML = sessionStorage.getItem("classcode").toUpperCase()
+        T_nickname.innerHTML = sessionStorage.getItem("nickname")
     }
 }   
 
