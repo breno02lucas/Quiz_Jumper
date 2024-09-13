@@ -156,6 +156,14 @@ footer #botoes-func li{
     display: inline-block;
 }
 
+footer #tempo-max{
+    padding: 1.7vh 2vh;
+    border-radius: 20px !important;
+
+    font-size: 2vh;
+    color: #2c333b;
+}
+
 footer #botoes-func button{
     background: #e0ff00;
     border: none;

@@ -24,7 +24,8 @@ window.onload = (event) => {
     // Variaveis com valores iniciais
     let pontuacao = 0    
     let contadorQuestao = 1
-    let isaudioback = false
+    let isaudioback = false    
+    let tempo = 120;
 
     // DOM HTML
     T_nome.innerText = nickname
@@ -47,7 +48,7 @@ window.onload = (event) => {
         pontuacao += VerificarResposta("a", questoes[contadorQuestao - 1][5])
         N_pontos.innerHTML = pontuacao + "pts"
         T_PontosFinais.innerHTML = pontuacao + "pts"
-        Venceu(contadorQuestao)
+        Venceu(contadorQuestao, tempo)
 
         // Adicionar +1 ao contador de questão
         contadorQuestao++
@@ -63,7 +64,7 @@ window.onload = (event) => {
         pontuacao += VerificarResposta("b", questoes[contadorQuestao - 1][5])
         N_pontos.innerHTML = pontuacao + "pts"
         T_PontosFinais.innerHTML = pontuacao + "pts"
-        Venceu(contadorQuestao)
+        Venceu(contadorQuestao, tempo)
 
         // Adicionar +1 ao contador de questão
         contadorQuestao++
@@ -79,7 +80,7 @@ window.onload = (event) => {
         pontuacao += VerificarResposta("c", questoes[contadorQuestao - 1][5])
         N_pontos.innerHTML = pontuacao + "pts"
         T_PontosFinais.innerHTML = pontuacao + "pts"
-        Venceu(contadorQuestao)
+        Venceu(contadorQuestao, tempo)
 
         // Adicionar +1 ao contador de questão
         contadorQuestao++
@@ -95,7 +96,7 @@ window.onload = (event) => {
         pontuacao += VerificarResposta("d", questoes[contadorQuestao - 1][5])
         N_pontos.innerHTML = pontuacao + "pts"
         T_PontosFinais.innerHTML = pontuacao + "pts"
-        Venceu(contadorQuestao)
+        Venceu(contadorQuestao, tempo)
 
         // Adicionar +1 ao contador de questão
         contadorQuestao++
@@ -125,6 +126,21 @@ window.onload = (event) => {
         }
         
     })
+
+    // Countdown
+    function Timer(){
+        var timer = setInterval(function(){
+            document.getElementById('tempo-max').innerHTML= tempo + "s";
+            tempo--;
+            if (tempo < 0) {
+                clearInterval(timer);
+
+                Venceu(contadorQuestao, tempo)
+            }
+        }, 1000);
+    }
+
+    Timer()
 }
 
 function VerificarResposta(altEscolhida, altCorreta)
@@ -218,9 +234,9 @@ function Print()
     })
 }
 
-function Venceu(contadorQuestao)
+function Venceu(contadorQuestao, tempo)
 {
-    if(contadorQuestao == 5)
+    if(contadorQuestao == 5 || tempo <= 0)
     {
         const container = document.getElementsByClassName("container")
         const T_classcode = document.getElementsByClassName("code")
